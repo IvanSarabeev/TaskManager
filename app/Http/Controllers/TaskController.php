@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -30,6 +30,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         
+        $validatedData = $request->validate(Task::rules());
+        $task = Task::create($validatedData);
+        return redirect('/task')->with('success', 'You have succesfully added data!');
     }
 
     /**
