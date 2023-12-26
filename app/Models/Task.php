@@ -15,7 +15,7 @@ class Task extends Model
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'due_date' => 'required|date',
+            'due_date' => 'required|date|after:now',
         ];
     }
 }
