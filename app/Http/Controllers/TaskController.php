@@ -48,6 +48,11 @@ class TaskController extends Controller
      */
     public function edit(string $id)
     {
+        // User Auth
+        if(auth()->user()->isAdmin != 1){
+            return redirect('/tasks')->with('error', 'You are not admin!');
+        }
+
         $task = Task::findOrFail($id);
         return view('edit', compact('task'));
     }
@@ -57,6 +62,10 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(auth()->user()->isAdmin != 1){
+            return redirect('/tasks')->with('error', 'You are not admin!');
+        }
+
         $validatedData = $request->validate(Task::rules());
         Task::whereId($id)->update($validatedData);
         return redirect('/tasks')->with('success', 'Task data is successfully updated');
@@ -67,6 +76,10 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
+        if(auth()->user()->isAdmin != 1){
+            return redirect('/tasks')->with('error', 'You are not admin!');
+        }
+
         $task = Task::findOrFail($id);
         $task->delete();
         return redirect('/tasks')->with('success', 'The data has been successfully deleted');
