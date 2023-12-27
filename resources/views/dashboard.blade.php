@@ -25,12 +25,12 @@
                         <td>Due Data</td>
                     </tr>
                     {{-- @foreach($tasks as $task)
-                    <tr class="text-white">
-                        <td>{{$task->id}}</td>
-                        <td>{{$task->title}}</td>
-                        <td>{{$task->description}}</td>
-                        <td>{{$task->due_date}}</td>
-                    </tr>
+                        <tr class="text-white">
+                            <td>{{$task->id}}</td>
+                            <td>{{$task->title}}</td>
+                            <td>{{$task->description}}</td>
+                            <td>{{$task->due_date}}</td>
+                        </tr>
                     @endforeach --}}
                 </tbody>
             </table>
