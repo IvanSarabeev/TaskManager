@@ -20,15 +20,13 @@ use App\Models\Task;
 // });
 
 Route::get('/', function () {
-
     $task = Task::all()->sortByDesc('id')->take(10);        
-
     return view('welcome', compact('task'));
-
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $tasks = Task::all()->sortBy('id')->take(10);        
+    return view('dashboard', compact('tasks'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('tasks', 'TaskController')->middleware('auth');

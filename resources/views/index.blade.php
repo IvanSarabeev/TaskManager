@@ -23,16 +23,16 @@
   </span>
     <article class="flex items-center justify-center overflow-x-auto shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50/5">
+        <thead class="bg-gray-50/5 text-left font-semibold text-sm text-gray-900">
           <tr>
-            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">№</th>
-            <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Title</th>
-            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 truncate">Description</th>
-            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Due Date</th>
-            <th class="hidden md:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Status</th>
-            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Priority</th>
+            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3">№</th>
+            <th class="py-3.5 pl-4 pr-3">Title</th>
+            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3  truncate">Description</th>
+            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 ">Due Date</th>
+            <th class="hidden md:table-cell py-3.5 pl-4 pr-3 ">Status</th>
+            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 ">Priority</th>
             @if (Auth::user()->isAdmin==1)
-              <th class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-900" colspan="2">Action</th>
+              <th class="py-3.5 pl-6 pr-3 " colspan="2">Action</th>
             @endif
           </tr>
         </thead>
