@@ -15,7 +15,7 @@
   {{-- Header  --}}
     @include('layouts.navigation')
   {{-- Header  --}}
-  <main class="bg-[#eff1f3]">
+  <main class="h-screen w-full bg-[#eff1f3]">
     @yield('content')
   </main>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" type="text/js"></script> -->

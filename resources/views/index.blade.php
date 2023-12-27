@@ -15,7 +15,7 @@
   <span class="w-full h-fit gap-y-4 flex flex-col md:flex-row items-center justify-between mb-10 px-2.5">
     <div class="gap-y-2 flex flex-col items-start justify-start text-gray-900">
       <h4 class="font-bold text-xl lg:text-2xl">Task Manager System</h4>
-      <p class="font-normal text-base">A list of all tasks in your account including title,description, due date and status</p>
+      <p class="font-normal text-base max-w-md">A list of all tasks in your account including title,description, due date, status and priority</p>
     </div>
       <a href="{{ route('tasks.create')}}" class="text-white w-full md:w-fit bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
         Add task
