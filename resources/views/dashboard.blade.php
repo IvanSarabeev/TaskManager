@@ -7,7 +7,7 @@
 
     <section class="max-w-7xl h-fit container mx-auto pt-12 pb-8 px-2">
         <div class="h-auto mx-auto flex flex-col gap-y-6 items-start justify-start sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 rounded-lg shadow-md bg-white text-gray-900">
-            <h1 class="font-semibold text-3xl pt-8 mb-4">First 10 Records</h1>
+            <h1 class="font-semibold text-3xl pt-8 mb-4">First 5 Records</h1>
             <table class="min-w-full divide-y divide-gray-200 overflow-x-auto shadow-md">
                 <thead class="text-base text-left font-semibold text-gray-900 bg-gray-50/5">
                     <tr>

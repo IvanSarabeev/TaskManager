@@ -37,7 +37,7 @@
         {{-- onclick="resetFilters(event)" --}}
       </div>
     </form>
-    <article class="flex items-center justify-center overflow-x-auto shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+    <article class="gap-4 flex flex-col items-center justify-center overflow-x-auto shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50/5 text-left font-semibold text-sm text-gray-900">
           <tr>
@@ -104,7 +104,7 @@
           @endforeach
         </tbody>
       </table>
-      <div class="flex items-center justify-center mx-auto">
+      <div class="flex items-center justify-center mx-auto pb-10">
         {{ $task->links() }}
       </div>
     </article>

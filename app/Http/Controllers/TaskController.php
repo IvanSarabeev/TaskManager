@@ -18,7 +18,7 @@ class TaskController extends Controller
         $task = Task::when($priority, function ($query, $priority) {
             return $query->where('priority', $priority);
         })
-        ->paginate(15);
+        ->paginate(5);
 
         $tasksQuery = Task::query();
 
