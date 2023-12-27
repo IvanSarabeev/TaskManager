@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,7 @@ use App\Models\Task;
 // });
 
 Route::get('/', function () {
-    $task = Task::all()->sortByDesc('id')->take(10);        
-    return view('welcome', compact('task'));
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

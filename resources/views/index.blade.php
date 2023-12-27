@@ -21,16 +21,32 @@
         Add task
       </a>
   </span>
+    <form method="get" action="{{ route('tasks.index') }}" class="w-full flex gap-x-2 items-center justify-between mb-6" action="{{ route('tasks.index') }}">
+      <div class="gap-x-2 flex items-center justify-start">
+        <label for="priority">Filter by Priority: </label>
+        <select name="priority" id="priorityFilter"
+         class="max-w-sm rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 ">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit" class="text-white w-full md:w-fit bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Filter</button>
+        <button type="reset" class="text-white w-full md:w-fit bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Reset Filter</button>
+        {{-- onclick="resetFilters(event)" --}}
+      </div>
+    </form>
     <article class="flex items-center justify-center overflow-x-auto shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50/5 text-left font-semibold text-sm text-gray-900">
           <tr>
             <th class="hidden lg:table-cell py-3.5 pl-4 pr-3">№</th>
             <th class="py-3.5 pl-4 pr-3">Title</th>
-            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3  truncate">Description</th>
-            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 ">Due Date</th>
-            <th class="hidden md:table-cell py-3.5 pl-4 pr-3 ">Status</th>
-            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 ">Priority</th>
+            <th class="hidden lg:table-cell py-3.5 pl-4 pr-3 truncate">Description</th>
+            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3">Due Date</th>
+            <th class="hidden md:table-cell py-3.5 pl-4 pr-3">Status</th>
+            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3">Priority</th>
             @if (Auth::user()->isAdmin==1)
               <th class="py-3.5 pl-6 pr-3 " colspan="2">Action</th>
             @endif
@@ -81,17 +97,23 @@
                 <button type="submit" class="text-white bg-gradient-to-br from-rose-500 to-80% to-violet-400 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center">
                   Delete
                 </button>
-                </form>
+              </form>
                 @endif
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-        <div class="flex items-center justify-center mx-auto">
-          {{ $task->links() }}
-        </div>
-      </article>
-    </section>
-
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      <div class="flex items-center justify-center mx-auto">
+        {{ $task->links() }}
+      </div>
+    </article>
+  </section>
+  <script>
+    function resetFilters(event) {
+        event.preventDefault();
+        document.getElementById('priorityFilter').value = '';
+        document.forms[0].submit();
+    }
+</script>
 @endsection

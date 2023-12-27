@@ -11,9 +11,22 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $task = Task::paginate(15);
+        $priority = $request->input('priority');
+
+        $task = Task::when($priority, function ($query, $priority) {
+            return $query->where('priority', $priority);
+        })
+        ->paginate(15);
+
+        $tasksQuery = Task::query();
+
+        if ($request->has('priority')) {
+            $tasksQuery->where('priority', $request->input('priority'));
+        }
+
+        // $task = Task::paginate(15);
         return view('index', compact('task'));
     }
 
