@@ -19,7 +19,7 @@
     </div>
     @endif
     <form method="post" action="{{ route('tasks.store') }}">
-      <article class="max-w-4xl gap-4 grid grid-cols-1 lg:grid-cols-2">
+      <article class="max-w-6xl gap-4 grid grid-cols-1 lg:grid-cols-2">
         @csrf
         <div>
           <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Task Title:</label>
@@ -33,6 +33,14 @@
           <label for="due_date">Due Date:</label>
           <input type="date" name="due_date" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           <input type="hidden" name="status" value="Incomplete">
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <select name="priority" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+          </select>
         </div>
       </article>
       <button type="submit" class="text-white mt-4 w-full md:w-fit bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">

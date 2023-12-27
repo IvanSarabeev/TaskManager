@@ -29,7 +29,8 @@
             <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Title</th>
             <th class="hidden lg:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 truncate">Description</th>
             <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Due Date</th>
-            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Status</th>
+            <th class="hidden md:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Status</th>
+            <th class="hidden sm:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Priority</th>
             @if (Auth::user()->isAdmin==1)
               <th class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-900" colspan="2">Action</th>
             @endif
@@ -48,6 +49,10 @@
                 <dd class="sm:hidden text-gray-700 mt-1">{{$tasks->due_date}}</dd>
                 <dt class="sr-only">Description</dt>
                 <dd class="text-gray-500 sm:text-gray-700 mt-1 truncate">{{$tasks->description}}</dd>
+                <dt class="sr-only">Status</dt>
+                <dd class="text-gray-500 sm:text-gray-700 mt-1 truncate">{{$tasks->status}}</dd>
+                <dt class="sr-only sm:hidden">Priority</dt>
+                <dd class="sm:hidden text-gray-500 sm:text-gray-700 mt-1 truncate capitalize">{{$tasks->priority}}</dd>
               </dl>
             </td>
             <td class="hidden lg:table-cell whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate">
@@ -56,15 +61,18 @@
             <td class="hidden sm:table-cell lg:max-w-sm whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate">
               {{$tasks->due_date}}
             </td>
-            <td class="hidden sm:table-cell lg:max-w-sm whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate">
+            <td class="hidden md:table-cell lg:max-w-sm whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate">
               {{$tasks->status ? "Completed": "Pending"}}
             </td>
-            <td>
+            <td class="hidden sm:table-cell lg:max-w-sm whitespace-nowrap px-3 py-4 text-sm text-gray-900 truncate capitalize">
+              {{$tasks->priority}}
+            </td>
+            <td class="max-w-fit">
               @if(Auth::user()->isAdmin==1)
                 <a href="{{ route('tasks.edit', $tasks->id)}}" target="_parent" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center">Edit</a>
               @endif
             </td>
-            <td>
+            <td class="max-w-fit">
               @if(Auth::user()->isAdmin==1)
               <form action="{{ route('tasks.destroy', $tasks->id)}}" method="post" 
                 onsubmit="return confirm('Are you sure ? The record will be deleted.');">
@@ -80,6 +88,9 @@
             @endforeach
           </tbody>
         </table>
+        <div class="flex items-center justify-center mx-auto">
+          {{ $task->links() }}
+        </div>
       </article>
     </section>
 
