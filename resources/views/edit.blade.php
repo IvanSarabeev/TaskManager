@@ -20,6 +20,7 @@
     @endif
       <form method="post" action="{{ route('tasks.update', $task->id) }}">
         @csrf
+        @method('PATCH')
         <article class="max-w-6xl gap-4 grid grid-cols-1 lg:grid-cols-2">
           <div>
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Task Title:</label>
